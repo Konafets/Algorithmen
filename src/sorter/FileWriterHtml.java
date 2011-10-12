@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sorter;
 
 /**
@@ -17,51 +13,73 @@ public class FileWriterHtml {
   static FileWriter writer;
   static File file;
   
-  public static void generateHTML(char kind)
+  /**
+   * Creates a new file. If the file exits, it will be deleted
+   * 
+   * @param String filename 
+   * @return void
+   */
+  public void createNewFile(String filename)
+  {
+      boolean existFile = (new File(filename)).exists();
+      if (existFile)
+      {
+          new File(filename).delete();
+      }
+      
+      file = new File(filename);
+  }
+  
+  /**
+   * Outputs some predefined HTML-Tags
+   * Values for codePart are:
+   *    - h: header part of html file
+   *    - f: footer part of html file
+   * 
+   * @param char codePart 
+   * @return void
+   */
+  public static void generateHTML(char codePart)
   {
       String html;
       
-      switch (kind)
+      switch (codePart)
       {
-          
           case 'h':
               html = "<html><head><title>Sortierergebnisse für Sortieralogorithmen</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/></head><body>";
-              schreiben(html);
+              writeLn(html);
               break;
           case 'f':
               html = "</body></hmtl>";
-              schreiben(html);
+              writeLn(html);
               break;
           
           default:
-              
-      
       }
   }
   
-  public static void schreiben(String code){
-    // File anlegen
-     file = new File("Sortierergebnisse.html");
+  /**
+   * Writes a line of text into a given file
+   * 
+   * @param String code
+   * @return void
+   */
+  public static void writeLn(String code){
      try {
-       // new FileWriter(file ,true) - falls die Datei bereits existiert
-       // werden die Bytes an das Ende der Datei geschrieben
-       
-       // new FileWriter(file) - falls die Datei bereits existiert
-       // wird diese überschrieben
+         // with second param is set to true, new lines will be append to the end of file
        writer = new FileWriter(file, true);
        
-       // Text wird in den Stream geschrieben
+        // write the text into the stream
        writer.write(code);
        
-       // Platformunabhängiger Zeilenumbruch wird in den Stream geschrieben
+        // insert platform-independ linebreak into the stream
        writer.write(System.getProperty("line.separator"));
        
-       // Schreibt den Stream in die Datei
-       // Sollte immer am Ende ausgeführt werden, sodass der Stream 
-       // leer ist und alles in der Datei steht.
+        // write stream content into the file.
+        // should be called at the end to be secure that the stream is empty and
+        // everthing is in the file
        writer.flush();
-       
-       // Schließt den Stream
+   
        writer.close();
     } catch (IOException e) {
       e.printStackTrace();

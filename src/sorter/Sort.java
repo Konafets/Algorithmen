@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sorter;
 
 import java.util.*;
@@ -13,17 +9,31 @@ import java.util.*;
  */
 public class Sort
 {
-	
+    
     private static long start, runningTime;
     private static FileWriterHtml writer = new FileWriterHtml();
     
+    /**
+     * Here we will save a object of a sort algorithm for DI
+     */
     private static Sorter sorter;
     
+    /**
+     * Set the sorter -> Setter-Injection
+     * @param Sorter s 
+     * @return void
+     */
     private static void setSorter(Sorter s)
     {
         sorter = s;
     }
     
+    /**
+     * Creates a array of random integers in the given size
+     * 
+     * @param int size
+     * @return array 
+     */
     private static int[] getRandomIntArray(int size)
     {
         Random randomGenerator = new Random();	
@@ -36,7 +46,13 @@ public class Sort
         return array;
     }	
     
-    
+    /**
+     * Here we call the various sort algoritm by dependency injection
+     * 
+     * @param int randomNumber
+     * @param Sorter s
+     * @return String A HTML table row with some output of the called algoritm
+     */
     private static String sort(int randomNumber, Sorter s) 
     {
         String result;
@@ -54,25 +70,27 @@ public class Sort
 	
     public static void main(String [] args)
     {
+        writer.createNewFile("Sortierergebnisse.html");
+ 
         writer.generateHTML('h');
-        writer.schreiben("<table style=\"border=1px solid black;\">");
-        writer.schreiben("<tr><th>Sortierverfahren</th><th>Problemgröße n</th><th>Zeit</th></tr>");
+        writer.writeLn("<table style=\"border=1px solid black;\">");
+        writer.writeLn("<tr><th>Sortierverfahren</th><th>Problemgröße n</th><th>Zeit</th></tr>");
         
         InsertionSorter iSorter = new InsertionSorter();
-        writer.schreiben(sort(1000, iSorter));
-        writer.schreiben(sort(10000, iSorter));
-        writer.schreiben(sort(100000, iSorter));
+        writer.writeLn(sort(1000, iSorter));
+        writer.writeLn(sort(10000, iSorter));
+        writer.writeLn(sort(100000, iSorter));
 		
         QuickSorter qSorter = new QuickSorter();
-        writer.schreiben(sort(1000, qSorter));
-        writer.schreiben(sort(10000, qSorter));
-        writer.schreiben(sort(100000, qSorter));
+        writer.writeLn(sort(1000, qSorter));
+        writer.writeLn(sort(10000, qSorter));
+        writer.writeLn(sort(100000, qSorter));
         
         MergeSorter mSorter = new MergeSorter();
-        writer.schreiben(sort(1000, mSorter));
-        writer.schreiben(sort(10000, mSorter));
-        writer.schreiben(sort(100000, mSorter));
-        writer.schreiben("</table>");
+        writer.writeLn(sort(1000, mSorter));
+        writer.writeLn(sort(10000, mSorter));
+        writer.writeLn(sort(100000, mSorter));
+        writer.writeLn("</table>");
         writer.generateHTML('f');
     }
 }
