@@ -17,6 +17,13 @@ public class Sort
     private static long start, runningTime;
     private static FileWriterHtml writer = new FileWriterHtml();
     
+    private static Sorter sorter;
+    
+    private static void setSorter(Sorter s)
+    {
+        sorter = s;
+    }
+    
     private static int[] getRandomIntArray(int size)
     {
         Random randomGenerator = new Random();	
@@ -30,47 +37,17 @@ public class Sort
     }	
     
     
-    private static String sort(int randomNumber, char typeOfSorter) 
+    private static String sort(int randomNumber, Sorter s) 
     {
-        int randomNumberArray[];
-        // sortiere 1000 Zufallszahlen mit Insertionsort
-        randomNumberArray = getRandomIntArray(randomNumber);
-     
         String result;
-        switch (typeOfSorter)
-        {
-            
-            case 'i':
-                InsertionSorter iSorter = new InsertionSorter();
-                start = new Date().getTime();
-                iSorter.sort(randomNumberArray);
-                runningTime = new Date().getTime() - start;
-                result = "<tr><td>Insertionsort</td><td>"  + randomNumber + "</td><td>" + runningTime + "</td></tr>";
-                //System.out.println("sortiere " + randomNumber + " Zufallszahlen mit Insertionsort \n Laufzeit: " + runningTime + "ms"); 
-                break;
-            case 'q':
-                QuickSorter qSorter = new QuickSorter();
-                start = new Date().getTime();
-                qSorter.sort(randomNumberArray);
-                runningTime = new Date().getTime() - start;
-                result = "<tr><td>Quicksort</td><td>"  + randomNumber + "</td><td>" + runningTime + "</td></tr>";
-                //System.out.println("sortiere " + randomNumber + " Zufallszahlen mit Quicksort \n Laufzeit: " + runningTime + "ms"); 
-                break;
-            case 'm':
-                MergeSorter mSorter = new MergeSorter();
-                start = new Date().getTime();
-                mSorter.sort(randomNumberArray);
-                runningTime = new Date().getTime() - start;
-                result = "<tr><td>Mergesort</td><td>"  + randomNumber + "</td><td>" + runningTime + "</td></tr>";
-                //System.out.println("sortiere " + randomNumber + " Zufallszahlen mit Mergesort \n Laufzeit: " + runningTime + "ms"); 
-                break;
-            default:
-                //System.out.println("No sorter selected");
-                result = "";
-                
-                
-        }
+        setSorter(s);
+        int randomNumberArray[] = getRandomIntArray(randomNumber);   
         
+        start = new Date().getTime();
+        sorter.sort(randomNumberArray);
+        runningTime = new Date().getTime() - start;
+        result = "<tr><td>" + sorter.getSorterName() + "</td><td>"  + randomNumber + "</td><td>" + runningTime + "</td></tr>";
+                
         return result;
     };
 	
@@ -80,17 +57,21 @@ public class Sort
         writer.generateHTML('h');
         writer.schreiben("<table style=\"border=1px solid black;\">");
         writer.schreiben("<tr><th>Sortierverfahren</th><th>Problemgröße n</th><th>Zeit</th></tr>");
-        writer.schreiben(sort(1000, 'i'));
-        writer.schreiben(sort(10000, 'i'));
-        writer.schreiben(sort(100000, 'i'));
-		
-        writer.schreiben(sort(1000, 'q'));
-        writer.schreiben(sort(10000, 'q'));
-        writer.schreiben(sort(100000, 'q'));
         
-        writer.schreiben(sort(1000, 'm'));
-        writer.schreiben(sort(10000, 'm'));
-        writer.schreiben(sort(100000, 'm'));
+        InsertionSorter iSorter = new InsertionSorter();
+        writer.schreiben(sort(1000, iSorter));
+        writer.schreiben(sort(10000, iSorter));
+        writer.schreiben(sort(100000, iSorter));
+		
+        QuickSorter qSorter = new QuickSorter();
+        writer.schreiben(sort(1000, qSorter));
+        writer.schreiben(sort(10000, qSorter));
+        writer.schreiben(sort(100000, qSorter));
+        
+        MergeSorter mSorter = new MergeSorter();
+        writer.schreiben(sort(1000, mSorter));
+        writer.schreiben(sort(10000, mSorter));
+        writer.schreiben(sort(100000, mSorter));
         writer.schreiben("</table>");
         writer.generateHTML('f');
     }

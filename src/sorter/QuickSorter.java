@@ -8,7 +8,7 @@ package sorter;
  *
  * @author sok
  */
-public class QuickSorter
+public class QuickSorter implements Sorter
 {
     private int[] a;
     private int n;
@@ -18,6 +18,11 @@ public class QuickSorter
         this.a=a;
         n=a.length;
         quicksort(0, n-1);
+    }
+    
+    public String getSorterName()
+    {
+        return "Quicksort";
     }
 
     private void quicksort (int lo, int hi)

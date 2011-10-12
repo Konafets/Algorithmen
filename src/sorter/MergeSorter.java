@@ -8,7 +8,7 @@ package sorter;
  *
  * @author sok
  */
-public class MergeSorter
+public class MergeSorter implements Sorter
 {
     private int[] a;
     private int[] b;    // Hilfsarray
@@ -21,6 +21,11 @@ public class MergeSorter
         // je nach Variante entweder/oder:
         b=new int[(n+1)/2];    b=new int[n];
         mergesort(0, n-1);
+    }
+    
+    public String getSorterName()
+    {
+        return "Mergesort";
     }
 
     private void mergesort(int lo, int hi)

@@ -8,7 +8,7 @@ package sorter;
  *
  * @author sok
  */
-public class InsertionSorter
+public class InsertionSorter implements Sorter
 {
     private int[] a;
     private int n;
@@ -20,6 +20,11 @@ public class InsertionSorter
         insertionsort();
     }
 
+    public String getSorterName()
+    {
+        return "Insertionsort";
+    }
+    
     private void insertionsort()
     {
         int i, j, t;
