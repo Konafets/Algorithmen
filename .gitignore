@@ -7,3 +7,5 @@
 /build/
 /build/classes/sorter/FileWriterHtml.class
 /nbproject/private/
+/dist/
+nbproject/private/private.xml

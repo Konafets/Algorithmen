@@ -75,7 +75,12 @@ public class Sort
         writer.generateHTML('h');
         writer.writeLn("<table style=\"border=1px solid black;\">");
         writer.writeLn("<tr><th>Sortierverfahren</th><th>Problemgröße n</th><th>Zeit</th></tr>");
-        
+        QuickSorterYT qSorterYT = new QuickSorterYT();
+        writer.writeLn(sort(10, qSorterYT));
+        writer.writeLn(sort(1000, qSorterYT));
+        writer.writeLn(sort(10000, qSorterYT));
+        writer.writeLn(sort(100000, qSorterYT));
+		
         InsertionSorter iSorter = new InsertionSorter();
         writer.writeLn(sort(1000, iSorter));
         writer.writeLn(sort(10000, iSorter));
