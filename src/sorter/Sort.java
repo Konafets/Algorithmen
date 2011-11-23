@@ -74,7 +74,7 @@ public class Sort
  
         writer.generateHTML('h');
         writer.writeLn("<table style=\"border=1px solid black;\">");
-        writer.writeLn("<tr><th>Sortierverfahren</th><th>Problemgröße n</th><th>Zeit</th></tr>");
+        writer.writeLn("<tr><th>Sortierverfahren</th><th>Problemgröße n</th><th>Zeit in ms</th></tr>");
         
         Sorter mySorter = new QuickSorterYT(); 
         writer.writeLn(sort(10, mySorter));
@@ -96,6 +96,12 @@ public class Sort
         writer.writeLn(sort(1000, mySorter));
         writer.writeLn(sort(10000, mySorter));
         writer.writeLn(sort(100000, mySorter));
+		
+		mySorter = new HeapSorter();
+		writer.writeLn(sort(1000, mySorter));
+        writer.writeLn(sort(10000, mySorter));
+        writer.writeLn(sort(100000, mySorter));
+		
         writer.writeLn("</table>");
         writer.generateHTML('f');
     }
