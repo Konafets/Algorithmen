@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sorter;
 
 /**
@@ -22,7 +18,7 @@ public class DanceSorter implements Sorter
         this.numbers = a;
         // Lenght of complete array
         length = a.length;
-        quicksortYT(0, length - 1);
+        dance(0, length - 1);
     }
 
     public String getSorterName()
@@ -46,7 +42,7 @@ public class DanceSorter implements Sorter
         return k;
     }
 
-    private void quicksortYT(int lo, int hi)
+    private void dance(int lo, int hi)
     {
         int i = lo, j = hi;
 
@@ -78,11 +74,11 @@ public class DanceSorter implements Sorter
         // Rekursion
         if (lo < j)
         {
-            quicksortYT(lo, j);
+            dance(lo, j);
         }
         if (i < hi)
         {
-            quicksortYT(i, hi);
+            dance(i, hi);
         }
     }
 
