@@ -5,18 +5,20 @@
 package sorter;
 
 /**
- *
- * @author sok
+ * 
+ * @author Stefano Kowalke 485366
+ * @author Finn Kondering  
  */
 public class InsertionSorter implements Sorter
 {
+
     private int[] a;
     private int n;
-	private long arrayAccessCounter;
+    private long arrayAccessCounter;
 
     public void sort(int[] a)
     {
-		setArrayAccessCounter(0);
+        setArrayAccessCounter(0);
         this.a = a;
         n = a.length;
         insertionsort();
@@ -26,23 +28,23 @@ public class InsertionSorter implements Sorter
     {
         return "Insertionsort";
     }
-	
-	private void setArrayAccessCounter(int i)
-	{
-		arrayAccessCounter = i;
-	}
-	
-	public long getArrayAccessCounter()
-	{
-		return arrayAccessCounter;
-	}
-	
-	private int c(int k)
-	{
-		arrayAccessCounter++;
-		return k;
-	}
-    
+
+    private void setArrayAccessCounter(int i)
+    {
+        arrayAccessCounter = i;
+    }
+
+    public long getArrayAccessCounter()
+    {
+        return arrayAccessCounter;
+    }
+
+    private int c(int k)
+    {
+        arrayAccessCounter++;
+        return k;
+    }
+
     private void insertionsort()
     {
         int i, j, t;
@@ -50,15 +52,14 @@ public class InsertionSorter implements Sorter
         {
             j = i;
             t = a[c(j)];
-			
-            while ((j > 0) && (a[c(j-1)] > t))
+
+            while ((j > 0) && (a[c(j - 1)] > t))
             {
-                a[c(j)] = a[c(j-1)];
+                a[c(j)] = a[c(j - 1)];
                 j--;
             }
-			
+
             a[c(j)] = t;
         }
     }
-
 }    // end class InsertionSorter

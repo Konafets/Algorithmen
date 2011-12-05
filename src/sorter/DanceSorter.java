@@ -9,24 +9,25 @@ package sorter;
  * @author Stefano Kowalke 485366
  * @author Finn Kondering  
  */
-public class QuickSorter implements Sorter
+public class DanceSorter implements Sorter
 {
 
-    private int[] a;
-    private int n;
+    private int[] numbers;
+    private int length;
     private long arrayAccessCounter;
 
     public void sort(int[] a)
     {
         setArrayAccessCounter(0);
-        this.a = a;
-        n = a.length;
-        quicksort(0, n - 1);
+        this.numbers = a;
+        // Lenght of complete array
+        length = a.length;
+        quicksortYT(0, length - 1);
     }
 
     public String getSorterName()
     {
-        return "Quicksort Rekursiv";
+        return "Quicksort YoutTube";
     }
 
     private void setArrayAccessCounter(int i)
@@ -45,21 +46,14 @@ public class QuickSorter implements Sorter
         return k;
     }
 
-    private void quicksort(int lo, int hi)
+    private void quicksortYT(int lo, int hi)
     {
         int i = lo, j = hi;
 
-        // Vergleichs­element x
-        int x = a[c((lo + hi) / 2)];
-
-        //  Aufteilung
         while (i <= j)
         {
-            while (a[c(i)] < x)
-            {
-                i++;
-            }
-            while (a[c(j)] > x)
+
+            while (numbers[i] < numbers[j])
             {
                 j--;
             }
@@ -67,6 +61,16 @@ public class QuickSorter implements Sorter
             {
                 exchange(i, j);
                 i++;
+            }
+
+
+            while (numbers[j] > numbers[i])
+            {
+                i++;
+            }
+            if (j >= i)
+            {
+                exchange(i, j);
                 j--;
             }
         }
@@ -74,18 +78,18 @@ public class QuickSorter implements Sorter
         // Rekursion
         if (lo < j)
         {
-            quicksort(lo, j);
+            quicksortYT(lo, j);
         }
         if (i < hi)
         {
-            quicksort(i, hi);
+            quicksortYT(i, hi);
         }
     }
 
     private void exchange(int i, int j)
     {
-        int t = a[c(i)];
-        a[c(i)] = a[c(j)];
-        a[c(j)] = t;
+        int t = numbers[i];
+        numbers[i] = numbers[j];
+        numbers[j] = t;
     }
 }    // end class QuickSorter

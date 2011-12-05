@@ -5,47 +5,50 @@
 package sorter;
 
 /**
- *
- * @author sok
+ * 
+ * @author Stefano Kowalke 485366
+ * @author Finn Kondering  
  */
 public class MergeSorter implements Sorter
 {
+
     private int[] a;
     private int[] b;    // Hilfsarray
     private int n;
-	private long arrayAccessCounter;
+    private long arrayAccessCounter;
 
     public void sort(int[] a)
     {
-		setArrayAccessCounter(0);
+        setArrayAccessCounter(0);
         this.a = a;
         n = a.length;
         // je nach Variante entweder/oder:
-        b = new int[(n + 1) / 2];    b = new int[n];
+        b = new int[(n + 1) / 2];
+        b = new int[n];
         mergesort(0, n - 1);
     }
-    
+
     public String getSorterName()
     {
         return "Mergesort";
     }
 
-	private void setArrayAccessCounter(int i)
-	{
-		arrayAccessCounter = i;
-	}
-	
-	public long getArrayAccessCounter()
-	{
-		return arrayAccessCounter;
-	}
-	
-	private int c(int k)
-	{
-		arrayAccessCounter++;
-		return k;
-	}
-	
+    private void setArrayAccessCounter(int i)
+    {
+        arrayAccessCounter = i;
+    }
+
+    public long getArrayAccessCounter()
+    {
+        return arrayAccessCounter;
+    }
+
+    private int c(int k)
+    {
+        arrayAccessCounter++;
+        return k;
+    }
+
     private void mergesort(int lo, int hi)
     {
         if (lo < hi)
@@ -62,32 +65,33 @@ public class MergeSorter implements Sorter
     {
         int i, j, k;
 
-        i = 0; j = lo;
-			// vordere Hälfte von a in Hilfsarray b kopieren
+        i = 0;
+        j = lo;
+        // vordere Hälfte von a in Hilfsarray b kopieren
         while (j <= m)
-		{
+        {
             b[c(i++)] = a[c(j++)];
-		}
+        }
 
-        i = 0; k = lo;
-		
-			// jeweils das nächstgrößte Element zurückkopieren
+        i = 0;
+        k = lo;
+
+        // jeweils das nächstgrößte Element zurückkopieren
         while (k < j && j <= hi)
-		{
+        {
             if (b[c(i)] <= a[c(j)])
-			{
+            {
                 a[c(k++)] = b[c(i++)];
-			}
-            else
-			{
+            } else
+            {
                 a[c(k++)] = a[c(j++)];
-			}
-		}
-		
+            }
+        }
+
         // Rest von b falls vorhanden zurückkopieren
         while (k < j)
-		{
+        {
             a[c(k++)] = b[c(i++)];
-		}
+        }
     }
 }    // end class MergeSorter
