@@ -12,11 +12,13 @@ public class InsertionSorter implements Sorter
 {
     private int[] a;
     private int n;
+	private long arrayAccessCounter;
 
     public void sort(int[] a)
     {
-        this.a=a;
-        n=a.length;
+		setArrayAccessCounter(0);
+        this.a = a;
+        n = a.length;
         insertionsort();
     }
 
@@ -24,20 +26,38 @@ public class InsertionSorter implements Sorter
     {
         return "Insertionsort";
     }
+	
+	private void setArrayAccessCounter(int i)
+	{
+		arrayAccessCounter = i;
+	}
+	
+	public long getArrayAccessCounter()
+	{
+		return arrayAccessCounter;
+	}
+	
+	private int c(int k)
+	{
+		arrayAccessCounter++;
+		return k;
+	}
     
     private void insertionsort()
     {
         int i, j, t;
-        for (i=1; i<n; i++)
+        for (i = 1; i < n; i++)
         {
-            j=i;
-            t=a[j];
-            while (j>0 && a[j-1]>t)
+            j = i;
+            t = a[c(j)];
+			
+            while ((j > 0) && (a[c(j-1)] > t))
             {
-                a[j]=a[j-1];
+                a[c(j)] = a[c(j-1)];
                 j--;
             }
-            a[j]=t;
+			
+            a[c(j)] = t;
         }
     }
 

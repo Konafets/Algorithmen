@@ -12,9 +12,11 @@ public class QuickSorterYT implements Sorter
 {
     private int[] numbers;
     private int length;
+	private long arrayAccessCounter;
 
     public void sort(int[] a)
     {
+		setArrayAccessCounter(0);
         this.numbers = a;
 			// Lenght of complete array
         length = a.length;
@@ -25,6 +27,22 @@ public class QuickSorterYT implements Sorter
     {
         return "Quicksort YoutTube";
     }
+	
+	private void setArrayAccessCounter(int i)
+	{
+		arrayAccessCounter = i;
+	}
+	
+	public long getArrayAccessCounter()
+	{
+		return arrayAccessCounter;
+	}
+	
+	private int c(int k)
+	{
+		arrayAccessCounter++;
+		return k;
+	}
 
     private void quicksortYT (int lo, int hi)
     {

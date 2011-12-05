@@ -12,32 +12,50 @@ public class QuickSorter implements Sorter
 {
     private int[] a;
     private int n;
+	private long arrayAccessCounter;
 
     public void sort(int[] a)
     {
-        this.a=a;
-        n=a.length;
-        quicksort(0, n-1);
+		setArrayAccessCounter(0);
+        this.a = a;
+        n = a.length;
+        quicksort(0, n - 1);
     }
     
     public String getSorterName()
     {
-        return "Quicksort";
+        return "Quicksort Rekursiv";
     }
-
+	
+	private void setArrayAccessCounter(int i)
+	{
+		arrayAccessCounter = i;
+	}
+	
+	public long getArrayAccessCounter()
+	{
+		return arrayAccessCounter;
+	}
+	
+	private int c(int k)
+	{
+		arrayAccessCounter++;
+		return k;
+	}
+	
     private void quicksort (int lo, int hi)
     {
-        int i=lo, j=hi;
+        int i = lo, j = hi;
 
         // Vergleichs­element x
-        int x=a[(lo+hi)/2];
+        int x = a[c((lo + hi) / 2)];
 
         //  Aufteilung
-        while (i<=j)
+        while (i <= j)
         {    
-            while (a[i]<x) i++; 
-            while (a[j]>x) j--;
-            if (i<=j)
+            while (a[c(i)] < x) i++; 
+            while (a[c(j)] > x) j--;
+            if (i <= j)
             {
                 exchange(i, j);
                 i++; j--;
@@ -45,15 +63,15 @@ public class QuickSorter implements Sorter
         }
 
         // Rekursion
-        if (lo<j) quicksort(lo, j);
-        if (i<hi) quicksort(i, hi);
+        if (lo < j) quicksort(lo, j);
+        if (i < hi) quicksort(i, hi);
     }
 
     private void exchange(int i, int j)
     {
-        int t=a[i];
-        a[i]=a[j];
-        a[j]=t;
+        int t = a[c(i)];
+        a[c(i)] = a[c(j)];
+        a[c(j)] = t;
     }
 
 }    // end class QuickSorter
