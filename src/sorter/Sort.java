@@ -122,6 +122,11 @@ public class Sort
         writer.writeLn(sort(10000, mySorter, 'a'));
         writer.writeLn(sort(100000, mySorter, 'a'));
 
+        mySorter = new QuickSorterIterativ();
+        writer.writeLn(sort(1000, mySorter, 'a'));
+        writer.writeLn(sort(10000, mySorter, 'a'));
+        writer.writeLn(sort(100000, mySorter, 'a'));
+        
         mySorter = new MergeSorter();
         writer.writeLn(sort(1000, mySorter, 'a'));
         writer.writeLn(sort(10000, mySorter, 'a'));
@@ -148,6 +153,11 @@ public class Sort
         writer.writeLn(sort(10000, mySorter, 'r'));
         writer.writeLn(sort(100000, mySorter, 'r'));
 
+        mySorter = new QuickSorterIterativ();
+        writer.writeLn(sort(1000, mySorter, 'r'));
+        writer.writeLn(sort(10000, mySorter, 'r'));
+        writer.writeLn(sort(100000, mySorter, 'r'));
+        
         mySorter = new MergeSorter();
         writer.writeLn(sort(1000, mySorter, 'r'));
         writer.writeLn(sort(10000, mySorter, 'r'));
@@ -174,6 +184,11 @@ public class Sort
         writer.writeLn(sort(10000, mySorter, 'd'));
         writer.writeLn(sort(100000, mySorter, 'd'));
 
+        mySorter = new QuickSorterIterativ();
+        writer.writeLn(sort(1000, mySorter, 'd'));
+        writer.writeLn(sort(10000, mySorter, 'd'));
+        writer.writeLn(sort(100000, mySorter, 'd'));
+        
         mySorter = new MergeSorter();
         writer.writeLn(sort(1000, mySorter, 'd'));
         writer.writeLn(sort(10000, mySorter, 'd'));

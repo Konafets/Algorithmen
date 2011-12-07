@@ -44,35 +44,90 @@ public class QuickSorterIterativ implements Sorter
         return k;
     }
 
-    private void quicksortIterativ(int left, int right)
+    private void quicksortIterativ(int lo, int hi)
     {
+        int m, x;
 
-        while (true)
+        while (lo < hi)
         {
-            if (left < right)
+            
+            
+            // Vergleichselement
+            m = (lo + hi) / 2;
+            x = a[c(m)];
+            
+            int i = lo;
+            int j = hi;
+            
+            // Aufteilung
+            while( i <= j)
             {
-                int x = a[c((left + right) / 2)];
-                int i = left - 1;
-                int j = right + 1;
-
-                while (true)
+                while (a[c(i)] < x) 
                 {
-                    while (a[c(i)] < x)
-                    {
-                        i++;
-                    }
-                    while (a[c(j)] > x)
-                    {
-                        j--;
-                    }
-
-                    if (i >= j)
-                    {
-                        break;
-                    }
+                    i++;
+                }
+                
+                while (a[c(j)] > x) 
+                {
+                    j--;
+                }
+                
+                if (i <= j)
+                {
+                    exchange(i, j);
+                    i++; 
+                    j--;        
                 }
             }
+            
+            // Rekursion
+            if (j < m)
+            {
+                quicksortIterativ(lo, j);
+                lo = i;
+            }
+            else 
+            {
+                quicksortIterativ(i, hi);
+                hi = j;
+            }
+                
         }
+//        // äußere Schleife
+//        while (true)
+//        {
+//            if (lo < hi)
+//            {
+//                int x = a[c((lo + hi) / 2)];
+//                int i = lo - 1;
+//                int j = hi + 1;
+//
+//                // innere Schleife
+//                while (true)
+//                {
+//                    while (a[c(i)] < x)
+//                    {
+//                        i++;
+//                    }
+//                    while (a[c(j)] > x)
+//                    {
+//                        j--;
+//                    }
+//
+//                    if (i >= j)
+//                    {
+//                        break;
+//                    }
+//                    
+//                    exchange(a[c(i)], a[c(j)]);
+//                }
+//                
+//            }
+//            else
+//            {
+//                if ()
+//            }
+//        }
 
 //        int i = lo, j = hi;
 //
