@@ -5,14 +5,22 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
+ * This class provides methods to write some HTML into a file
+ * Used to generate a HTML page for comparing the various sort alorithm 
  * 
  * @author Stefano Kowalke 485366
  * @author Finn Kondering 399083  
  */
 public class FileWriterHtml
 {
-
+    /**
+     * An object of the file writer class
+     */
     static FileWriter writer;
+    
+    /**
+     * A representation of a file
+     */
     static File file;
 
     /**

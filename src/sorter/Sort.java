@@ -3,6 +3,8 @@ package sorter;
 import java.util.Random;
 
 /**
+ * With this class we call the various sort algorithm and compare it.
+ * Writes the result for comparing in a HTML file 
  * 
  * @author Stefano Kowalke 485366
  * @author Finn Kondering 399083 
@@ -97,6 +99,7 @@ public class Sort
         return result;
     }
 	
+    
     public static void main(String[] args)
     {
         ISorter mySorter;
