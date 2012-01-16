@@ -9,7 +9,7 @@ package sorter;
  * @author Stefano Kowalke 485366
  * @author Finn Kondering  
  */
-public class MergeSorter implements Sorter
+public class MergeSorter implements ISorter
 {
 
     private int[] a;

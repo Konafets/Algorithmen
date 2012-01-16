@@ -9,7 +9,7 @@ package sorter;
  * @author Stefano Kowalke 485366
  * @author Finn Kondering  
  */
-public class QuickSorterIterativ implements Sorter
+public class QuickSorterIterativ implements ISorter
 {
     private int[] a;
     private int n;

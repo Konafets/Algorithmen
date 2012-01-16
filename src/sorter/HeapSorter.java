@@ -5,7 +5,7 @@ package sorter;
  * @author Stefano Kowalke 485366
  * @author Finn Kondering  
  */
-public class HeapSorter implements Sorter
+public class HeapSorter implements ISorter
 {
 
     private int[] a;

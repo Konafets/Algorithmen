@@ -5,7 +5,7 @@ package sorter;
  * @author Stefano Kowalke 485366
  * @author Finn Kondering  
  */
-public class DanceSorter implements Sorter
+public class DanceSorter implements ISorter
 {
 
     private int[] numbers;
