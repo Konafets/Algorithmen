@@ -6,6 +6,10 @@
 /Sortierergebnisse.html
 /build/
 /build/classes/sorter/FileWriterHtml.class
-/nbproject/private/
 /dist/
-nbproject/private/private.xml
+/nbproject/
+
+nbproject/build-impl.xml
+nbproject/genfiles.properties
+nbproject/private/private.properties
+nbproject/project.properties
