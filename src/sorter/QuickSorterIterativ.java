@@ -1,13 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sorter;
 
 /**
  * 
  * @author Stefano Kowalke 485366
- * @author Finn Kondering  
+ * @author Finn Kondering 399083
  */
 public class QuickSorterIterativ implements ISorter
 {

@@ -3,7 +3,7 @@ package sorter;
 /**
  * 
  * @author Stefano Kowalke 485366
- * @author Finn Kondering  
+ * @author Finn Kondering 399083  
  */
 public class DanceSorter implements ISorter
 {

@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * 
  * @author Stefano Kowalke 485366
- * @author Finn Kondering  
+ * @author Finn Kondering 399083 
  */
 public class Sort
 {
@@ -96,9 +96,6 @@ public class Sort
 
         return result;
     }
-
-    ;
-	
 	
     public static void main(String[] args)
     {
