@@ -102,8 +102,8 @@ public class Sort
 	
     public static void main(String[] args)
     {
-        Sorter mySorter;
-        writer.createNewFile("Sortierergebnisse.html");
+        ISorter mySorter;
+        writer.createNewFile("results/html/Sortierergebnisse.html");
 
         writer.generateHTML('h');
         writer.writeLn("<h1>Vergleich von verschiedenen Sortierverfahren</h1>");
