@@ -17,14 +17,14 @@ public class Sort
     /**
      * Here we will save a object of a sort algorithm for DI
      */
-    private static Sorter sorter;
+    private static ISorter sorter;
 
     /**
      * Set the sorter -> Setter-Injection
-     * @param Sorter s 
+     * @param ISorter s 
      * @return void
      */
-    private static void setSorter(Sorter s)
+    private static void setSorter(ISorter s)
     {
         sorter = s;
     }
@@ -51,10 +51,10 @@ public class Sort
      * Here we call the various sort algoritm by dependency injection
      * 
      * @param int size
-     * @param Sorter s
+     * @param ISorter s
      * @return String A HTML table row with some output of the called algoritm
      */
-    private static String sort(int size, Sorter s, char method)
+    private static String sort(int size, ISorter s, char method)
     {
         String result;
         setSorter(s);
