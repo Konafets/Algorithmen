@@ -12,11 +12,6 @@ import java.util.Random;
 public class Sort
 {
     /**
-     * An object of the file writer class
-     */
-    private static FileWriterHtml writer = new FileWriterHtml();
- 
-    /**
      * Here we will save a object of a sort algorithm for DI
      */
     private static ISorter sorter;
@@ -107,104 +102,104 @@ public class Sort
     public static void main(String[] args)
     {
         ISorter mySorter;
-        writer.createNewFile("results/html/Sortierergebnisse.html");
+        FileWriterHtml.createNewFile("results/html/Sortierergebnisse.html");
 
-        writer.generateHTML('h');
-        writer.writeLn("<h1>Vergleich von verschiedenen Sortierverfahren</h1>");
+        FileWriterHtml.generateHTML('h');
+        FileWriterHtml.writeLn("<h1>Vergleich von verschiedenen Sortierverfahren</h1>");
 
-        writer.writeLn("<h2>Sortierverfahren mit aufsteigend sortierten Zahlen</h2>");
-        writer.writeLn("<table style=\"border=1px solid black;\">");
-        writer.writeLn("<tr><th>Sortierverfahren</th><th>Problemgröße n</th><th>Zeitkomplexität</th></tr>");
-
-        mySorter = new InsertionSorter();
-        writer.writeLn(sort(1000, mySorter, 'a'));
-        writer.writeLn(sort(10000, mySorter, 'a'));
-        writer.writeLn(sort(100000, mySorter, 'a'));
-
-        mySorter = new QuickSorter();
-        writer.writeLn(sort(1000, mySorter, 'a'));
-        writer.writeLn(sort(10000, mySorter, 'a'));
-        writer.writeLn(sort(100000, mySorter, 'a'));
-
-        mySorter = new QuickSorterIterativ();
-        writer.writeLn(sort(1000, mySorter, 'a'));
-        writer.writeLn(sort(10000, mySorter, 'a'));
-        writer.writeLn(sort(100000, mySorter, 'a'));
-        
-        mySorter = new MergeSorter();
-        writer.writeLn(sort(1000, mySorter, 'a'));
-        writer.writeLn(sort(10000, mySorter, 'a'));
-        writer.writeLn(sort(100000, mySorter, 'a'));
-
-        mySorter = new HeapSorter();
-        writer.writeLn(sort(1000, mySorter, 'a'));
-        writer.writeLn(sort(10000, mySorter, 'a'));
-        writer.writeLn(sort(100000, mySorter, 'a'));
-
-        writer.writeLn("</table>");
-
-        writer.writeLn("<h2>Sortierverfahren mit Zufallszahlen</h2>");
-        writer.writeLn("<table style=\"border=1px solid black;\">");
-        writer.writeLn("<tr><th>Sortierverfahren</th><th>Problemgröße n</th><th>Zeitkomplexität</th></tr>");
+        FileWriterHtml.writeLn("<h2>Sortierverfahren mit aufsteigend sortierten Zahlen</h2>");
+        FileWriterHtml.writeLn("<table style=\"border=1px solid black;\">");
+        FileWriterHtml.writeLn("<tr><th>Sortierverfahren</th><th>Problemgröße n</th><th>Zeitkomplexität</th></tr>");
 
         mySorter = new InsertionSorter();
-        writer.writeLn(sort(1000, mySorter, 'r'));
-        writer.writeLn(sort(10000, mySorter, 'r'));
-        writer.writeLn(sort(100000, mySorter, 'r'));
+        FileWriterHtml.writeLn(sort(1000, mySorter, 'a'));
+        FileWriterHtml.writeLn(sort(10000, mySorter, 'a'));
+        FileWriterHtml.writeLn(sort(100000, mySorter, 'a'));
 
         mySorter = new QuickSorter();
-        writer.writeLn(sort(1000, mySorter, 'r'));
-        writer.writeLn(sort(10000, mySorter, 'r'));
-        writer.writeLn(sort(100000, mySorter, 'r'));
+        FileWriterHtml.writeLn(sort(1000, mySorter, 'a'));
+        FileWriterHtml.writeLn(sort(10000, mySorter, 'a'));
+        FileWriterHtml.writeLn(sort(100000, mySorter, 'a'));
 
         mySorter = new QuickSorterIterativ();
-        writer.writeLn(sort(1000, mySorter, 'r'));
-        writer.writeLn(sort(10000, mySorter, 'r'));
-        writer.writeLn(sort(100000, mySorter, 'r'));
+        FileWriterHtml.writeLn(sort(1000, mySorter, 'a'));
+        FileWriterHtml.writeLn(sort(10000, mySorter, 'a'));
+        FileWriterHtml.writeLn(sort(100000, mySorter, 'a'));
         
         mySorter = new MergeSorter();
-        writer.writeLn(sort(1000, mySorter, 'r'));
-        writer.writeLn(sort(10000, mySorter, 'r'));
-        writer.writeLn(sort(100000, mySorter, 'r'));
+        FileWriterHtml.writeLn(sort(1000, mySorter, 'a'));
+        FileWriterHtml.writeLn(sort(10000, mySorter, 'a'));
+        FileWriterHtml.writeLn(sort(100000, mySorter, 'a'));
 
         mySorter = new HeapSorter();
-        writer.writeLn(sort(1000, mySorter, 'r'));
-        writer.writeLn(sort(10000, mySorter, 'r'));
-        writer.writeLn(sort(100000, mySorter, 'r'));
+        FileWriterHtml.writeLn(sort(1000, mySorter, 'a'));
+        FileWriterHtml.writeLn(sort(10000, mySorter, 'a'));
+        FileWriterHtml.writeLn(sort(100000, mySorter, 'a'));
 
-        writer.writeLn("</table>");
+        FileWriterHtml.writeLn("</table>");
 
-        writer.writeLn("<h2>Sortierverfahren mit absteigend sortierten Zahlen</h2>");
-        writer.writeLn("<table style=\"border=1px solid black;\">");
-        writer.writeLn("<tr><th>Sortierverfahren</th><th>Problemgröße n</th><th>Zeitkomplexität</th></tr>");
+        FileWriterHtml.writeLn("<h2>Sortierverfahren mit Zufallszahlen</h2>");
+        FileWriterHtml.writeLn("<table style=\"border=1px solid black;\">");
+        FileWriterHtml.writeLn("<tr><th>Sortierverfahren</th><th>Problemgröße n</th><th>Zeitkomplexität</th></tr>");
 
         mySorter = new InsertionSorter();
-        writer.writeLn(sort(1000, mySorter, 'd'));
-        writer.writeLn(sort(10000, mySorter, 'd'));
-        writer.writeLn(sort(100000, mySorter, 'd'));
+        FileWriterHtml.writeLn(sort(1000, mySorter, 'r'));
+        FileWriterHtml.writeLn(sort(10000, mySorter, 'r'));
+        FileWriterHtml.writeLn(sort(100000, mySorter, 'r'));
 
         mySorter = new QuickSorter();
-        writer.writeLn(sort(1000, mySorter, 'd'));
-        writer.writeLn(sort(10000, mySorter, 'd'));
-        writer.writeLn(sort(100000, mySorter, 'd'));
+        FileWriterHtml.writeLn(sort(1000, mySorter, 'r'));
+        FileWriterHtml.writeLn(sort(10000, mySorter, 'r'));
+        FileWriterHtml.writeLn(sort(100000, mySorter, 'r'));
 
         mySorter = new QuickSorterIterativ();
-        writer.writeLn(sort(1000, mySorter, 'd'));
-        writer.writeLn(sort(10000, mySorter, 'd'));
-        writer.writeLn(sort(100000, mySorter, 'd'));
+        FileWriterHtml.writeLn(sort(1000, mySorter, 'r'));
+        FileWriterHtml.writeLn(sort(10000, mySorter, 'r'));
+        FileWriterHtml.writeLn(sort(100000, mySorter, 'r'));
         
         mySorter = new MergeSorter();
-        writer.writeLn(sort(1000, mySorter, 'd'));
-        writer.writeLn(sort(10000, mySorter, 'd'));
-        writer.writeLn(sort(100000, mySorter, 'd'));
+        FileWriterHtml.writeLn(sort(1000, mySorter, 'r'));
+        FileWriterHtml.writeLn(sort(10000, mySorter, 'r'));
+        FileWriterHtml.writeLn(sort(100000, mySorter, 'r'));
 
         mySorter = new HeapSorter();
-        writer.writeLn(sort(1000, mySorter, 'd'));
-        writer.writeLn(sort(10000, mySorter, 'd'));
-        writer.writeLn(sort(100000, mySorter, 'd'));
+        FileWriterHtml.writeLn(sort(1000, mySorter, 'r'));
+        FileWriterHtml.writeLn(sort(10000, mySorter, 'r'));
+        FileWriterHtml.writeLn(sort(100000, mySorter, 'r'));
 
-        writer.writeLn("</table>");
+        FileWriterHtml.writeLn("</table>");
 
-        writer.generateHTML('f');
+        FileWriterHtml.writeLn("<h2>Sortierverfahren mit absteigend sortierten Zahlen</h2>");
+        FileWriterHtml.writeLn("<table style=\"border=1px solid black;\">");
+        FileWriterHtml.writeLn("<tr><th>Sortierverfahren</th><th>Problemgröße n</th><th>Zeitkomplexität</th></tr>");
+
+        mySorter = new InsertionSorter();
+        FileWriterHtml.writeLn(sort(1000, mySorter, 'd'));
+        FileWriterHtml.writeLn(sort(10000, mySorter, 'd'));
+        FileWriterHtml.writeLn(sort(100000, mySorter, 'd'));
+
+        mySorter = new QuickSorter();
+        FileWriterHtml.writeLn(sort(1000, mySorter, 'd'));
+        FileWriterHtml.writeLn(sort(10000, mySorter, 'd'));
+        FileWriterHtml.writeLn(sort(100000, mySorter, 'd'));
+
+        mySorter = new QuickSorterIterativ();
+        FileWriterHtml.writeLn(sort(1000, mySorter, 'd'));
+        FileWriterHtml.writeLn(sort(10000, mySorter, 'd'));
+        FileWriterHtml.writeLn(sort(100000, mySorter, 'd'));
+        
+        mySorter = new MergeSorter();
+        FileWriterHtml.writeLn(sort(1000, mySorter, 'd'));
+        FileWriterHtml.writeLn(sort(10000, mySorter, 'd'));
+        FileWriterHtml.writeLn(sort(100000, mySorter, 'd'));
+
+        mySorter = new HeapSorter();
+        FileWriterHtml.writeLn(sort(1000, mySorter, 'd'));
+        FileWriterHtml.writeLn(sort(10000, mySorter, 'd'));
+        FileWriterHtml.writeLn(sort(100000, mySorter, 'd'));
+
+        FileWriterHtml.writeLn("</table>");
+
+        FileWriterHtml.generateHTML('f');
     }
 }

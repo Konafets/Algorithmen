@@ -29,7 +29,7 @@ public class FileWriterHtml
      * @param filename 
      * @return void
      */
-    public void createNewFile(String filename)
+    public static void createNewFile(String filename)
     {
         boolean existFile = (new File(filename)).exists();
         if (existFile)
