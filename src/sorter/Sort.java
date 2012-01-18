@@ -23,7 +23,7 @@ public class Sort
 
     /**
      * Set the sorter -> Setter-Injection
-     * @param ISorter s 
+     * @param s 
      * @return void
      */
     private static void setSorter(ISorter s)
@@ -34,7 +34,7 @@ public class Sort
     /**
      * Creates a array of random integers in the given size
      * 
-     * @param int size
+     * @param size
      * @return array 
      */
     private static int[] getRandomIntArray(int size)
@@ -52,8 +52,12 @@ public class Sort
     /**
      * Here we call the various sort algoritm by dependency injection
      * 
-     * @param int size
-     * @param ISorter s
+     * @param size The size of the array to build
+     * @param s A instance of a sorter 
+     * @param method The method which array should be build. 
+     *               a - Ascending numbers
+     *               d - Descending numbers
+     *               r - Random numbers
      * @return String A HTML table row with some output of the called algoritm
      */
     private static String sort(int size, ISorter s, char method)

@@ -26,7 +26,7 @@ public class FileWriterHtml
     /**
      * Creates a new file. If the file exits, it will be deleted
      * 
-     * @param String filename 
+     * @param filename 
      * @return void
      */
     public void createNewFile(String filename)
@@ -46,7 +46,7 @@ public class FileWriterHtml
      *    - h: header part of html file
      *    - f: footer part of html file
      * 
-     * @param char codePart 
+     * @param codePart 
      * @return void
      */
     public static void generateHTML(char codePart)
@@ -71,7 +71,7 @@ public class FileWriterHtml
     /**
      * Writes a line of text into a given file
      * 
-     * @param String code
+     * @param code
      * @return void
      */
     public static void writeLn(String code)
