@@ -40,6 +40,7 @@ public class MergeSorter implements ISorter
         this.a = a;
         n = a.length;
         // je nach Variante entweder/oder:
+        // Hilfarray für die effizientere Variante dimensionieren
         b = new int[(n + 1) / 2];
         //b = new int[n];
         mergesort(0, n - 1);

@@ -84,7 +84,7 @@ public class QuickSorter implements ISorter
     {
         int i = lo, j = hi;
 
-            // Compare element x
+            // Pivot element x
         int x = a[c((lo + hi) / 2)];
 
             //  Split
