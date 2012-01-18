@@ -41,7 +41,7 @@ public class MergeSorter implements ISorter
         n = a.length;
         // je nach Variante entweder/oder:
         b = new int[(n + 1) / 2];
-        b = new int[n];
+        //b = new int[n];
         mergesort(0, n - 1);
     }
 
