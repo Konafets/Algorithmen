@@ -32,7 +32,7 @@ public class Sort
     }
 
     /**
-     * Creates a array of random integers in the given size
+     * Creates an array of random integers in the given size
      * 
      * @param size
      * @return array 
@@ -90,7 +90,7 @@ public class Sort
                 break;
 
             case 'r':
-                int randomNumberArray[] = getRandomIntArray(size);
+                int[] randomNumberArray = getRandomIntArray(size);
 
                 sorter.sort(randomNumberArray);
                 break;
@@ -102,7 +102,7 @@ public class Sort
 
         return result;
     }
-	
+
     
     public static void main(String[] args)
     {
